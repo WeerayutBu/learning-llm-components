@@ -45,14 +45,14 @@ The rungs above the baseline, each hand-written and scored by the same `measure`
 
 | | ms | vs baseline |
 |---|---|---|
-| the sieve in `src/` — baseline | `68.8` | — |
-| the loop, 15 experiments | `7.8` | 8.8× |
-| hand-written ceiling | `3.8` | 18.1× |
+| the sieve in `src/` — baseline | `67.0` | — |
+| the loop, 15 experiments | `26.6` | 2.5× |
+| hand-written ceiling | `3.3` | 20.2× |
 
 A closed-form task ends at experiment 1 and measures noise for the rest. This one has no single
-step that reaches the top, so the loop compounds: `3.4x` at experiment 6, `4.5x` at 7, `8.8x`
-at 12. It found odds-only and slice assignment, then kept a list of bools where a `bytearray`
-was worth the rest.
+step that reaches the top, so the loop has room to compound — and how much it takes is a coin
+toss. The run in the notebook won once, `2.5x`; an hour earlier the same code and model won four
+times for `9.0x`. Proposals are sampled, so the mechanism reproduces and the number does not.
 
 ## Verification
 
