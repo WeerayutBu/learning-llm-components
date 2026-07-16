@@ -95,7 +95,7 @@ flowchart LR
 | 13 | [SFT with prompt masking](post-training/sft/) | post-training | 🔲 | `trl.SFTTrainer` | — |
 | 14 | [DPO](post-training/dpo/) | post-training | 🔲 | `trl.DPOTrainer` | — |
 | 15 | [GRPO](post-training/grpo/) | post-training | 🔲 | `trl` / `verl` | — |
-| 16 | [tool calling](agents/tool-calling/) | agent | 🔲 | HF `transformers` tool chat template | — |
+| 16 | [tool calling](tool_calling/) | agent | 🟡 | OpenAI tool-call wire format (DeepInfra) | Model returns structured `tool_calls`; you execute and feed results back |
 | 17 | [ReAct loop](react_loop/) | agent | 🟡 | `ysymyth/ReAct` | Interleave Thought → Action → Observation until Finish[answer] |
 | 18 | [multi-step + memory](agents/memory/) | agent | 🔲 | LangGraph reference loop | — |
 
