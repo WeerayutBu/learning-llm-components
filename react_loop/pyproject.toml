@@ -1,0 +1,14 @@
+[project]
+name = "react-loop"
+version = "0.1.0"
+requires-python = ">=3.11"
+# ReAct is pure API + Wikipedia — no torch / ML stack, so it installs on macOS too.
+dependencies = [
+    "beautifulsoup4",
+    "requests",
+    "python-dotenv",
+    # <7: the VS Code Jupyter extension can't drive ipykernel 7's protocol yet —
+    # it reports ipykernel as missing and asks you to pip install it. See docs/environment.md.
+    "ipykernel<7",
+    "openai>=2.45.0",
+]

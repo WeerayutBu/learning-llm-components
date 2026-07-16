@@ -1,6 +1,6 @@
 # <mechanism name>
 
-Recall form — answer from memory, file closed. Answer in your own words *and* a quick mermaid sketch wherever a diagram rereads faster than prose (data flow, tensor shapes, algorithm steps). Any blank → drill it, then log the gap in [gap-journal.md](../../methods/gap-journal.md).
+Recall form — answer from memory, file closed. Answer in your own words *and* a quick mermaid sketch wherever a diagram rereads faster than prose (data flow, tensor shapes, algorithm steps). Any blank → drill it, then log the gap in [gap-journal.md](../../docs/gap-journal.md).
 
 - Verified against: <reference.impl> · allclose @ rtol=1e-4: <✅ / —>
 - Last reviewed: <date> · recalled: <n/8>

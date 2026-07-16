@@ -1,6 +1,6 @@
-# learning-llm-from-scratch
+# learning-llm-components
 
-Method — read first, then learn by repetition: [methods/method.md](methods/method.md).
+Method — read first, then learn by repetition: [docs/method.md](docs/method.md).
 
 ## Dependency graph
 
@@ -96,16 +96,21 @@ flowchart LR
 | 14 | [DPO](post-training/dpo/) | post-training | 🔲 | `trl.DPOTrainer` | — |
 | 15 | [GRPO](post-training/grpo/) | post-training | 🔲 | `trl` / `verl` | — |
 | 16 | [tool calling](agents/tool-calling/) | agent | 🔲 | HF `transformers` tool chat template | — |
-| 17 | [ReAct loop](agents/react/) | agent | 🔲 | `smolagents` | — |
+| 17 | [ReAct loop](react_loop/) | agent | 🟡 | `ysymyth/ReAct` | Interleave Thought → Action → Observation until Finish[answer] |
 | 18 | [multi-step + memory](agents/memory/) | agent | 🔲 | LangGraph reference loop | — |
 
 Status legend: 🔲 planned · 🟡 in progress · ✅ done (allclose passed)
 
 ## Setup
 
+One venv per module, one `.env` at the root.
+
 ```bash
-uv sync            # create .venv/ from pyproject.toml
-uv run python ...  # run inside .venv
+cp .env.example .env                          # once per clone: the shared, gitignored secrets file
+code learning-llm-components.code-workspace   # always open this — never the repo folder
+cd react_loop && uv sync                      # once per module: creates ./.venv from its pyproject.toml
 ```
 
-Data, checkpoints, and logs live on `/workspace` (uncommitted).
+Run `uv sync` from the module — the root has no `pyproject.toml`. Open the repo folder and VS Code can't see the module venvs (no interpreter, no kernel); the workspace file makes each module its own root. In notebooks: **Select Kernel → Python Environments → `.venv`**. [Details](docs/environment.md).
+
+Docker available if needed. Data, checkpoints, and logs live on `/workspace` (uncommitted).

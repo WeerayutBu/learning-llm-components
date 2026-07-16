@@ -8,6 +8,15 @@ One-line takeaway — the sentence that goes in the index row.
 
 ## Summary
 
+One glance — a diagram, formula, or image that captures the mechanism (mermaid
+data flow, the core equation, or a `![](assets/…)` image; pick whatever rereads
+fastest):
+
+```mermaid
+flowchart LR
+    X["input"] --> OP["the mechanism"] --> Y["output"]
+```
+
 The three things I can now explain from memory:
 
 1. Why it exists — <the problem it solves>
@@ -20,9 +29,9 @@ The parts I'll look up again — core formula, tensor shapes, key API:
 
 <equations · shapes · signature>
 
-## Gotchas
+## Weaknesses
 
-What I got wrong at first, and the fix. Deeper entries: [gap journal](../../methods/gap-journal.md).
+What I got wrong at first, and the fix. Deeper entries: [gap journal](../../docs/gap-journal.md).
 
 ## Verification
 

@@ -20,9 +20,9 @@ The parts I'll look up again — core formula, tensor shapes, key API:
 
 <equations · shapes · signature>
 
-## Gotchas
+## Weaknesses
 
-What I got wrong at first, and the fix. Deeper entries: [gap journal](../../methods/gap-journal.md).
+What I got wrong at first, and the fix. Deeper entries: [gap journal](../../docs/gap-journal.md).
 
 ## Verification
 

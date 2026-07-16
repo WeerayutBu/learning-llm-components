@@ -1,5 +1,5 @@
 [project]
-name = "learning-llm-from-scratch"
+name = "learning-llm-components"
 version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
@@ -27,6 +27,7 @@ dependencies = [
     "omegaconf",
     "evaluate",
     "seqeval",
+    "python-dotenv",
 ]
 
 [tool.uv.sources]
