@@ -22,7 +22,7 @@ The parts I'll look up again — core formula, tensor shapes, key API:
 
 ## Gotchas
 
-What I got wrong at first, and the fix. Deeper entries: [gap journal](../../gap-journal.md).
+What I got wrong at first, and the fix. Deeper entries: [gap journal](../../methods/gap-journal.md).
 
 ## Verification
 

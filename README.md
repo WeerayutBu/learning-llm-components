@@ -1,13 +1,6 @@
 # learning-llm-from-scratch
 
-## Loop
-
-Per mechanism — read first, then learn by repetition:
-
-1. Read — study the mechanism and its math from the reference. Skim if familiar, dig in if new.
-2. Repeat until fluent — rebuild from memory in blind0.ipynb, then blind1, blind2, … Each pass is a fresh drill, checked against production and fixed. Repetition is where it sticks.
-3. Promote & verify — the clean version becomes main.py; allclose @ rtol=1e-4 confirms it.
-4. Keep — write the README summary; revisit questions.md later to confirm it stuck.
+Method — read first, then learn by repetition: [methods/method.md](methods/method.md).
 
 ## Dependency graph
 
@@ -85,8 +78,6 @@ flowchart LR
 
 18 core mechanisms in learning order; the [graph](#dependency-graph) above regroups them by category.
 
-Flow: **①** tokenizer (warm-up) → **②–⑤** training engine (autograd → loss → loop → optimizer; train a tiny model) → **⑥–⑨** build the transformer → **⑩–⑪** generate → **⑫** train at scale → **⑬–⑮** align → **⑯–⑱** agent (tool calling → ReAct → memory).
-
 | # | Mechanism | Category | Status | Verified against | One-line takeaway |
 |---|-----------|----------|--------|------------------|-------------------|
 | 1 | [BPE tokenizer](tokenization/bpe/) | tokenization | 🟡 | HF `tokenizers` | — |
@@ -108,7 +99,7 @@ Flow: **①** tokenizer (warm-up) → **②–⑤** training engine (autograd �
 | 17 | [ReAct loop](agents/react/) | agent | 🔲 | `smolagents` | — |
 | 18 | [multi-step + memory](agents/memory/) | agent | 🔲 | LangGraph reference loop | — |
 
-Status legend: 🔲 planned · 🟡 in progress · ✅ done (allclose passed) · 🎓 graduated (blind < target time, 3 clean drill passes)
+Status legend: 🔲 planned · 🟡 in progress · ✅ done (allclose passed)
 
 ## Setup
 

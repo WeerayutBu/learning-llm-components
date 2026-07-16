@@ -1,6 +1,6 @@
 # BPE tokenizer
 
-Recall form — answer from memory, file closed. Answer in your own words *and* a quick mermaid sketch wherever a diagram rereads faster than prose (data flow, tensor shapes, algorithm steps). Any blank → drill it, then log the gap in [gap-journal.md](../../gap-journal.md).
+Recall form — answer from memory, file closed. Answer in your own words *and* a quick mermaid sketch wherever a diagram rereads faster than prose (data flow, tensor shapes, algorithm steps). Any blank → drill it, then log the gap in [gap-journal.md](../../methods/gap-journal.md).
 
 - Verified against: HF `tokenizers` — exact token-id match
 - Last reviewed: <date> · recalled: <n/8>
