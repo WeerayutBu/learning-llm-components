@@ -61,14 +61,6 @@ summarise(keep=2) ────────────────────�
   → turns 1–4 compressed. "Your favourite tokenizer is Byte Pair Encoding (BPE)."
 ```
 
-## Weaknesses
-
-- **Windowing drops facts silently** — the model answers "I don't know" and cannot tell you it forgot, because evicted context leaves no trace.
-- **Summarising costs a call to save a prompt** — 2.2× smaller here, but the summary itself cost ~100 tokens to make. It only pays once the transcript dwarfs the summary.
-- **A second model decides what you remember** — whatever the summariser judged important is what survives. Prompt it for the facts you actually need.
-- **Memory dies with the process** — the transcript is a Python list. Real agents key it by thread id in a store (LangGraph's checkpointer) so a restart resumes.
-- **The transcript is the whole state** — tool results and observations share the list, so eviction can drop something the next step depends on.
-
 ## Verification
 
 Fact recall against a known fact planted in turn 1, plus `usage.prompt_tokens` per strategy (table above). Stateless baseline confirms the model has no side channel.

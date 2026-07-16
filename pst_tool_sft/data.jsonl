@@ -8,3 +8,7 @@
 {"question": "current time in Tokyo please", "name": "current_time", "arguments": {"timezone": "Asia/Tokyo"}}
 {"question": "tell me the time in UTC", "name": "current_time", "arguments": {"timezone": "UTC"}}
 {"question": "what's the time over in New York right now", "name": "current_time", "arguments": {"timezone": "America/New_York"}}
+{"question": "convert 100 USD to THB", "name": "convert_currency", "arguments": {"amount": 100, "from": "USD", "to": "THB"}}
+{"question": "how much is 50 euros in dollars?", "name": "convert_currency", "arguments": {"amount": 50, "from": "EUR", "to": "USD"}}
+{"question": "what's 2000 yen in baht", "name": "convert_currency", "arguments": {"amount": 2000, "from": "JPY", "to": "THB"}}
+{"question": "turn 75 GBP into JPY", "name": "convert_currency", "arguments": {"amount": 75, "from": "GBP", "to": "JPY"}}

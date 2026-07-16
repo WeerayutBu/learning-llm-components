@@ -50,14 +50,17 @@ notebook loads. No `questions.md`, no `blind0.ipynb` — pruned.
 ## 6. README shape
 
 Title → one-liner → *italic intuition* → Category / Verified against / Status → `## Summary`
-(mermaid + why / how / without-it) → `## Reference` → `## Weaknesses` → `## Verification` →
-`## Run` → `## Links`.
+(mermaid + why / how / without-it) → `## Reference` → `## Verification` → `## Run` → `## Links`.
+
+No Weaknesses here — it lives in the notebook (§7).
 
 ## 7. Weaknesses
 
-A table — `| Weakness | What happens | Fix |` — in the README and the notebook's last cell.
-Only what you hit, with the evidence. No fix? `none — <what to expect>`. If a re-run didn't
-reproduce it, delete it.
+**One place: the last cell of `main.ipynb`.** Not the README — it drifts out of sync with the
+code that proves it.
+
+A table — `| Weakness | What happens | Fix |`. Only what you hit, with the evidence. No fix?
+`none — <what to expect>`. If a re-run didn't reproduce it, delete it.
 
 ## 8. Prose is the shortest part
 

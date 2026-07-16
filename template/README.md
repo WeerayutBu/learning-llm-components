@@ -24,16 +24,6 @@ flowchart LR
 - `main.ipynb`: <the arc, in the order the cells build it>
 - <the parts you'll look up again — formula, shapes, key API>
 
-## Weaknesses
-
-What actually bit you, with the evidence — not theoretical caveats. Every row must have
-survived a re-run; a wrong gotcha sends you chasing a bug that doesn't exist. If a weakness
-has no fix, say so — "none, expect X" is a real answer.
-
-| Weakness | What happens | Fix |
-|---|---|---|
-| **<the short name>** | <what you observed — the wrong output, the number, the error> | <what to do instead, or "none — <what to expect>"> |
-
 ## Verification
 
 <How you confirmed it matches the reference, and on what inputs. Numbers here are

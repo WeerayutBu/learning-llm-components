@@ -56,13 +56,6 @@ Four detours for one fact — each step exists only because the last one withhel
 - `final.ipynb`: `WikiEnv`, few-shot prompt, Llama policy (DeepInfra, OpenAI-compatible API), loop, HotpotQA demo eval.
 - Loop turn: assistant = `Thought i` + `Action i` (stop before Observation); user = real `Observation i`.
 
-## Weaknesses
-
-- **`stop=["\nObservation"]` is load-bearing** — without it the model invents observations and never calls the tool.
-- **Chat turns, not prefill** — model each Thought+Action as an assistant turn, each Observation as a user turn.
-- **Wikipedia needs a `User-Agent`** — the default one 403s, observations arrive empty, and the agent quietly answers from the few-shot examples instead. A broken env scored *better* than a fixed one.
-- **Live Wikipedia drifts from gold** — the High Plains article now says 1,500–6,000 ft vs HotpotQA's 1,800–7,000 ft, so a grounded run disagrees with the gold. EM under-reports.
-
 ## Verification
 
 `WikiEnv` parsing + EM/F1 metrics unit-checked; end-to-end scored by exact-match / token-F1 on a small HotpotQA slice (demo cell).

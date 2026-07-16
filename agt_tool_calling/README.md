@@ -27,14 +27,6 @@ flowchart LR
 - `main.ipynb`: the wrong answer, tool + schema, one call, the loop.
 - A tool is **two things that must agree** — the Python implementation (the model never sees it) and the schema (the only thing it can reason about). `description` and parameter names are prompt text.
 
-## Weaknesses
-
-- **`finish_reason` is `"stop"`, not `"tool_calls"`** — DeepInfra doesn't set the standard value, so branching on it never fires. Test `message.tool_calls` instead.
-- **Template fragments leak into `content`** — seen as `'function=multiply>{…}</function>'` on one run and bare `'>'` on the next. Harmless if you read `tool_calls`, confusing if you print `content`.
-- **The schema is prompt, not a contract** — nothing forces the model to call the tool, call it once, or pass sane values. `IMPLS[name](**args)` trusts it completely: a wrong name is a `KeyError`, wrong args a `TypeError`.
-- **`arguments` is a JSON *string*** — needs `json.loads`; malformed JSON raises rather than degrading.
-- **The `tool` turn must echo `tool_call_id`** — drop it and results can't be matched to requests; with parallel calls it misattributes silently.
-
 ## Verification
 
 Exact arithmetic, not `allclose`: the model alone gets `47281 * 918` wrong; with the tool it returns `43403958` exactly. `tool_calls` is checked against the schema (name resolves in `IMPLS`, `arguments` parse to the declared types).
