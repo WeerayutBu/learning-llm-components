@@ -2,6 +2,9 @@
 
 Give the model a typed escape hatch to real code: it asks, you execute.
 
+*A brain in a jar — fluent, and unable to multiply or read a clock. The schema is a menu it
+can point at; you are the hands.*
+
 - Category: agent
 - Verified against: OpenAI tool-call wire format (via DeepInfra) · scored by exact arithmetic, not allclose
 - Status: 🟡 in progress

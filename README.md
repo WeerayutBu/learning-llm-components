@@ -78,26 +78,30 @@ flowchart LR
 
 18 core mechanisms in learning order; the [graph](#dependency-graph) above regroups them by category.
 
+Dirs are `<cat>_<mechanism>` — `tok` · `fnd` · `trn` · `arc` · `inf` · `pst` · `agt`. Both
+halves are stable, so **this table owns the order**: adding or dropping a mechanism is a
+one-row edit and never renames a directory.
+
 | # | Mechanism | Category | Status | Verified against | One-line takeaway |
 |---|-----------|----------|--------|------------------|-------------------|
-| 1 | [BPE tokenizer](tokenization/bpe/) | tokenization | 🟡 | HF `tokenizers` | — |
-| 2 | [autograd](foundations/autograd/) | foundations | 🔲 | `torch.autograd` | — |
-| 3 | [cross-entropy](foundations/cross-entropy/) | foundations | 🔲 | `F.cross_entropy` | — |
-| 4 | [training loop + SGD](training/training-loop/) | training | 🔲 | `torch.optim.SGD` | — |
-| 5 | [AdamW](foundations/adamw/) | foundations | 🔲 | `torch.optim.AdamW` | — |
-| 6 | [embeddings + RoPE](architecture/rope/) | architecture | 🔲 | Llama reference impl | — |
-| 7 | [attention (single → multi-head)](architecture/attention/) | architecture | 🔲 | `F.scaled_dot_product_attention` | — |
-| 8 | [LayerNorm & RMSNorm](architecture/layernorm-rmsnorm/) | architecture | 🔲 | `nn.LayerNorm` / Llama RMSNorm | — |
-| 9 | [full GPT](architecture/gpt/) | architecture | 🔲 | nanoGPT | — |
-| 10 | [sampling (greedy/temp/top-k/top-p)](inference/sampling/) | inference | 🔲 | HF `generate` | — |
-| 11 | [KV-cache](inference/kv-cache/) | inference | 🔲 | no-cache generation (identical outputs) | — |
-| 12 | [grad accumulation + clipping + LR schedules](training/grad-accumulation/) | training | 🔲 | math identity: N steps ≡ batch×N | — |
-| 13 | [SFT with prompt masking](post-training/sft/) | post-training | 🔲 | `trl.SFTTrainer` | — |
-| 14 | [DPO](post-training/dpo/) | post-training | 🔲 | `trl.DPOTrainer` | — |
-| 15 | [GRPO](post-training/grpo/) | post-training | 🔲 | `trl` / `verl` | — |
-| 16 | [tool calling](tool_calling/) | agent | 🟡 | OpenAI tool-call wire format (DeepInfra) | Model returns structured `tool_calls`; you execute and feed results back |
-| 17 | [ReAct loop](react_loop/) | agent | 🟡 | `ysymyth/ReAct` | Interleave Thought → Action → Observation until Finish[answer] |
-| 18 | [multi-step + memory](agents/memory/) | agent | 🔲 | LangGraph reference loop | — |
+| 1 | [BPE tokenizer](tok_bpe/) | tokenization | 🔲 | HF `tokenizers` | — |
+| 2 | [autograd](fnd_autograd/) | foundations | 🔲 | `torch.autograd` | — |
+| 3 | [cross-entropy](fnd_cross_entropy/) | foundations | 🔲 | `F.cross_entropy` | — |
+| 4 | [training loop + SGD](trn_loop/) | training | 🔲 | `torch.optim.SGD` | — |
+| 5 | [AdamW](fnd_adamw/) | foundations | 🔲 | `torch.optim.AdamW` | — |
+| 6 | [embeddings + RoPE](arc_rope/) | architecture | 🔲 | Llama reference impl | — |
+| 7 | [attention (single → multi-head)](arc_attention/) | architecture | 🔲 | `F.scaled_dot_product_attention` | — |
+| 8 | [LayerNorm & RMSNorm](arc_layernorm/) | architecture | 🔲 | `nn.LayerNorm` / Llama RMSNorm | — |
+| 9 | [full GPT](arc_gpt/) | architecture | 🔲 | nanoGPT | — |
+| 10 | [sampling (greedy/temp/top-k/top-p)](inf_sampling/) | inference | 🔲 | HF `generate` | — |
+| 11 | [KV-cache](inf_kv_cache/) | inference | 🔲 | no-cache generation (identical outputs) | — |
+| 12 | [grad accumulation + clipping + LR schedules](trn_grad_accumulation/) | training | 🔲 | math identity: N steps ≡ batch×N | — |
+| 13 | [SFT with prompt masking](pst_sft/) | post-training | 🔲 | `trl.SFTTrainer` | — |
+| 14 | [DPO](pst_dpo/) | post-training | 🔲 | `trl.DPOTrainer` | — |
+| 15 | [GRPO](pst_grpo/) | post-training | 🔲 | `trl` / `verl` | — |
+| 16 | [tool calling](agt_tool_calling/) | agent | 🟡 | OpenAI tool-call wire format (DeepInfra) | Model returns structured `tool_calls`; you execute and feed results back |
+| 17 | [ReAct loop](agt_react_loop/) | agent | 🟡 | `ysymyth/ReAct` | Interleave Thought → Action → Observation until Finish[answer] |
+| 18 | [multi-step + memory](agt_memory/) | agent | 🟡 | LangGraph reference loop | The API is stateless; memory is whatever you choose to re-send |
 
 Status legend: 🔲 planned · 🟡 in progress · ✅ done (allclose passed)
 
@@ -106,11 +110,10 @@ Status legend: 🔲 planned · 🟡 in progress · ✅ done (allclose passed)
 One venv per module, one `.env` at the root.
 
 ```bash
-cp .env.example .env                          # once per clone: the shared, gitignored secrets file
-code learning-llm-components.code-workspace   # always open this — never the repo folder
-cd react_loop && uv sync                      # once per module: creates ./.venv from its pyproject.toml
+cp .env.example .env             # once per clone: the shared, gitignored secrets file
+cd agt_react_loop && uv sync     # once per module: creates ./.venv from its pyproject.toml
 ```
 
-Run `uv sync` from the module — the root has no `pyproject.toml`. Open the repo folder and VS Code can't see the module venvs (no interpreter, no kernel); the workspace file makes each module its own root. In notebooks: **Select Kernel → Python Environments → `.venv`**. [Details](docs/environment.md).
+Run `uv sync` from the module — the root has no `pyproject.toml`. In notebooks: **Select Kernel → Python Environments → `.venv`**.
 
 Docker available if needed. Data, checkpoints, and logs live on `/workspace` (uncommitted).

@@ -2,6 +2,9 @@
 
 Interleave Thought → Action → Observation until `Finish[answer]`.
 
+*How you'd actually answer a trivia question: think, look it up, let what you find change the
+next thought. Thinking alone invents facts; searching alone flails.*
+
 - Category: agent
 - Verified against: [`ysymyth/ReAct`](https://github.com/ysymyth/ReAct) (`WikiEnv` ported) · scored by EM/F1, not allclose
 - Status: 🟡 in progress
