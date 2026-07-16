@@ -6,6 +6,8 @@ The agent's instructions, not the loop's. **This file is the lever — change th
 
 Make `solve(n)` faster. Lower seconds is better.
 
+It counts the primes below `n`. The sieve in `src/` is the one everyone writes first.
+
 ## What the agent sees
 
 - `program.md` — this file, prepended to every prompt. It reads the goal; it cannot change it.
@@ -19,7 +21,7 @@ Make `solve(n)` faster. Lower seconds is better.
 
 ## Constraints
 
-- Signature stays `def solve(n)`.
+- Signature stays `def solve(n)`. `n` is exclusive: count primes `< n`.
 - Every case in `harness/cases.json` must pass exactly. A faster wrong answer scores nothing.
 - Pure stdlib. No third-party imports, no I/O, no network.
 

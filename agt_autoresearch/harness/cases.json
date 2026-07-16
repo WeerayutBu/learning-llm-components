@@ -1,5 +1,6 @@
 {
-  "_note": "n is exclusive: sum over i < n. This is the spec the model keeps getting wrong.",
-  "tests": [[10, 23], [100, 2318], [1000, 233168]],
-  "workload": 2000000
+  "_note": "count of primes below n — n is exclusive. pi(7)=3 counts 2,3,5 and NOT 7. This is the spec the model keeps getting wrong, and only a prime n catches it.",
+  "tests": [[7, 3], [10, 4], [100, 25], [1000, 168], [10000, 1229]],
+  "workload": 2000000,
+  "expected": 148933
 }
