@@ -113,7 +113,7 @@ one-row edit and never renames a directory.
 | 17 | [ReAct loop](agt_react_loop/) | agent | 🟡 | `ysymyth/ReAct` | Interleave Thought → Action → Observation until Finish[answer] |
 | 18 | [multi-step + memory](agt_memory/) | agent | 🟡 | LangGraph reference loop | The API is stateless; memory is whatever you choose to re-send |
 | 20 | [autoresearch](agt_autoresearch/) | agent | 🟡 | [karpathy/autoresearch](https://github.com/karpathy/autoresearch) (one loop, `program.md`) | Edit one file, measure, keep or discard — the human is the bottleneck, so remove them |
-| 21 | [meta-evolution](agt_meta_evolution/) | agent | 🔲 | EvoX ([arXiv:2602.23413](https://arxiv.org/abs/2602.23413)) · [Bilevel Autoresearch](https://arxiv.org/pdf/2603.23420) | A second loop watches the first and rewrites its search when it stalls |
+| 21 | [meta-evolution](agt_meta_evolution/) | agent | 🟡 | EvoX ([arXiv:2602.23413](https://arxiv.org/abs/2602.23413)) · [skydiscover](https://github.com/skydiscover-ai/skydiscover) | The search strategy is code — a second loop rewrites it when `Δ < τ` says the first one stalled |
 
 Status legend: 🔲 planned · 🟡 in progress · ✅ done (matches the reference). Agent modules score by EM/F1 or exact value, not allclose.
 

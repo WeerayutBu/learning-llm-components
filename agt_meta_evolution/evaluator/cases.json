@@ -1,0 +1,35 @@
+{
+  "_note": "Human judgement, 0..1. A program is scored by how well its numbers CORRELATE with this column — not by matching it. Negations are the point: they read as near-identical to any character-level metric.",
+  "pairs": [
+    {"kind": "identical", "human": 1.0, "a": "the door is open", "b": "the door is open"},
+    {"kind": "identical", "human": 1.0, "a": "please send the report", "b": "please send the report"},
+
+    {"kind": "typo", "human": 0.95, "a": "hello world", "b": "helo wrold"},
+    {"kind": "typo", "human": 0.95, "a": "the quick brown fox", "b": "the quikc brown fox"},
+    {"kind": "typo", "human": 0.95, "a": "database connection failed", "b": "database conection failed"},
+    {"kind": "typo", "human": 0.95, "a": "please send the report", "b": "plese send the report"},
+
+    {"kind": "paraphrase", "human": 0.9, "a": "the cat sat on the mat", "b": "a cat was sitting on the mat"},
+    {"kind": "paraphrase", "human": 0.9, "a": "he bought a new car", "b": "he purchased a new automobile"},
+    {"kind": "paraphrase", "human": 0.9, "a": "the meeting starts at three", "b": "the meeting begins at 3pm"},
+    {"kind": "paraphrase", "human": 0.9, "a": "she is very happy today", "b": "she feels really glad today"},
+    {"kind": "paraphrase", "human": 0.9, "a": "the film was excellent", "b": "the movie was great"},
+
+    {"kind": "partial", "human": 0.5, "a": "the cat sat on the mat", "b": "the cat sat on the chair"},
+    {"kind": "partial", "human": 0.5, "a": "he bought a new car", "b": "he bought a new bike"},
+    {"kind": "partial", "human": 0.5, "a": "the meeting starts at three", "b": "the meeting starts at four"},
+    {"kind": "partial", "human": 0.5, "a": "i visited paris last summer", "b": "i visited paris last winter"},
+
+    {"kind": "negation", "human": 0.1, "a": "the door is open", "b": "the door is not open"},
+    {"kind": "negation", "human": 0.1, "a": "i like this design", "b": "i do not like this design"},
+    {"kind": "negation", "human": 0.1, "a": "he is coming to the party", "b": "he is not coming to the party"},
+    {"kind": "negation", "human": 0.1, "a": "this is safe to deploy", "b": "this is not safe to deploy"},
+    {"kind": "negation", "human": 0.1, "a": "the server is running", "b": "the server is not running"},
+    {"kind": "negation", "human": 0.1, "a": "the test passed", "b": "the test failed"},
+
+    {"kind": "unrelated", "human": 0.05, "a": "the cat sat on the mat", "b": "quantum physics is difficult"},
+    {"kind": "unrelated", "human": 0.05, "a": "hello world", "b": "the stock market crashed"},
+    {"kind": "unrelated", "human": 0.05, "a": "please send the report", "b": "she plays the violin"},
+    {"kind": "unrelated", "human": 0.05, "a": "the door is open", "b": "bananas grow in tropical climates"}
+  ]
+}
