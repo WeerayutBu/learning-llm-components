@@ -24,6 +24,32 @@ flowchart LR
 2. **How** — every program is kept. `sample()` picks the parent, so `sample()` *is* the strategy. Watch a window of `W`; if `Δ < τ`, a second model rewrites that method and it is hot-swapped in.
 3. **Without it** — you hand-tune explore/exploit knobs per task, and re-tune them as the search space changes underneath you.
 
+## Steps
+
+Every iteration is one message to the model. The only thing in it is a program and an ask:
+
+```
+Here is a program scoring 0.335. Change one thing.
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+     search_strategy.py chose which one
+```
+
+| # | step | who |
+|---|------|-----|
+| 1 | **Pick** a parent, and the siblings shown beside it — `sample()` | strategy |
+| 2 | **Vary** it: the model rewrites the parent, one change | model |
+| 3 | **Score** it: correlation vs human judgement. Every valid program is kept | `evaluator/` |
+| 4 | **Watch** a window of `W`: `Δ = best_end - best_start` | controller |
+| 5 | **Rewrite** `sample()` if `Δ < τ` — a second model, shown the strategy and the population | meta model |
+| 6 | **Swap or restore**: the new strategy inherits the population; if it won't load, the old one stays | controller |
+
+Steps 1–3 are the inner loop, 4–6 the outer. Both are searching for Python source — one for a
+`similarity()`, one for a `sample()` — and only step 3 has a score at all. A strategy can never
+be graded directly; a flat window is the only evidence it was the wrong one.
+
+Nothing is discarded in step 3, so **every bit of selection pressure lives in step 1**. That is
+why the strategy carries the weight, and why rewriting it changes the search.
+
 ## Reference
 
 | path | inner loop | outer loop | EvoX's |
