@@ -11,13 +11,13 @@ Per mechanism — read first, then learn by repetition:
 
 ## Dependency graph
 
-Build order, left to right: tokenization → architecture → training → post-training → inference → agent. Numbers match the [index](#index). Node color = category; the training block folds in the foundations primitives (blue). Agent is future work.
+Category flow, left to right: tokenization → architecture → training → post-training → inference → agent. Numbers match the [index](#index) learning order. Node color = category; the training block folds in the foundations primitives (blue).
 
 ```mermaid
 flowchart LR
     subgraph TOKENIZE["① tokenization"]
         direction TB
-        M5[5 · BPE tokenizer]:::token
+        M1[1 · BPE tokenizer]:::token
     end
 
     subgraph ARCH["② architecture"]
@@ -32,12 +32,12 @@ flowchart LR
 
     subgraph TRAIN["③ training"]
         direction TB
-        M1[1 · autograd]:::found
+        M2[2 · autograd]:::found
         M3[3 · cross-entropy]:::found
-        M2[2 · training loop + SGD]:::train
-        M4[4 · AdamW]:::found
+        M4[4 · training loop + SGD]:::train
+        M5[5 · AdamW]:::found
         M12[12 · grad accum / clip / LR]:::train
-        M1 --> M3 --> M2 --> M4 --> M12
+        M2 --> M3 --> M4 --> M5 --> M12
     end
 
     subgraph POST["④ post-training"]
@@ -55,12 +55,12 @@ flowchart LR
         M11[11 · KV-cache]:::infer
     end
 
-    subgraph AGENT["⑥ agent (future)"]
+    subgraph AGENT["⑥ agent"]
         direction TB
-        A1[tool use / function calling]:::agent
-        A2[ReAct loop]:::agent
-        A3[multi-step + memory]:::agent
-        A1 --> A2 --> A3
+        M16[16 · tool calling]:::agent
+        M17[17 · ReAct loop]:::agent
+        M18[18 · multi-step + memory]:::agent
+        M16 --> M17 --> M18
     end
 
     %% block-to-block flow
@@ -83,15 +83,17 @@ flowchart LR
 
 ## Index
 
-15 core mechanisms in build order; the [graph](#dependency-graph) above regroups them by category.
+18 core mechanisms in learning order; the [graph](#dependency-graph) above regroups them by category.
+
+Flow: **①** tokenizer (warm-up) → **②–⑤** training engine (autograd → loss → loop → optimizer; train a tiny model) → **⑥–⑨** build the transformer → **⑩–⑪** generate → **⑫** train at scale → **⑬–⑮** align → **⑯–⑱** agent (tool calling → ReAct → memory).
 
 | # | Mechanism | Category | Status | Verified against | One-line takeaway |
 |---|-----------|----------|--------|------------------|-------------------|
-| 1 | [autograd](foundations/autograd/) | foundations | 🔲 | `torch.autograd` | — |
-| 2 | [training loop + SGD](training/training-loop/) | training | 🔲 | `torch.optim.SGD` | — |
+| 1 | [BPE tokenizer](tokenization/bpe/) | tokenization | 🟡 | HF `tokenizers` | — |
+| 2 | [autograd](foundations/autograd/) | foundations | 🔲 | `torch.autograd` | — |
 | 3 | [cross-entropy](foundations/cross-entropy/) | foundations | 🔲 | `F.cross_entropy` | — |
-| 4 | [AdamW](foundations/adamw/) | foundations | 🔲 | `torch.optim.AdamW` | — |
-| 5 | [BPE tokenizer](tokenization/bpe/) | tokenization | 🔲 | HF `tokenizers` | — |
+| 4 | [training loop + SGD](training/training-loop/) | training | 🔲 | `torch.optim.SGD` | — |
+| 5 | [AdamW](foundations/adamw/) | foundations | 🔲 | `torch.optim.AdamW` | — |
 | 6 | [embeddings + RoPE](architecture/rope/) | architecture | 🔲 | Llama reference impl | — |
 | 7 | [attention (single → multi-head)](architecture/attention/) | architecture | 🔲 | `F.scaled_dot_product_attention` | — |
 | 8 | [LayerNorm & RMSNorm](architecture/layernorm-rmsnorm/) | architecture | 🔲 | `nn.LayerNorm` / Llama RMSNorm | — |
@@ -102,6 +104,9 @@ flowchart LR
 | 13 | [SFT with prompt masking](post-training/sft/) | post-training | 🔲 | `trl.SFTTrainer` | — |
 | 14 | [DPO](post-training/dpo/) | post-training | 🔲 | `trl.DPOTrainer` | — |
 | 15 | [GRPO](post-training/grpo/) | post-training | 🔲 | `trl` / `verl` | — |
+| 16 | [tool calling](agents/tool-calling/) | agent | 🔲 | HF `transformers` tool chat template | — |
+| 17 | [ReAct loop](agents/react/) | agent | 🔲 | `smolagents` | — |
+| 18 | [multi-step + memory](agents/memory/) | agent | 🔲 | LangGraph reference loop | — |
 
 Status legend: 🔲 planned · 🟡 in progress · ✅ done (allclose passed) · 🎓 graduated (blind < target time, 3 clean drill passes)
 

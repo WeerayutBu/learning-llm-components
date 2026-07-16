@@ -1,10 +1,10 @@
-# <mechanism name>
+# BPE tokenizer
 
-One-line takeaway — the sentence that goes in the index row.
+One-line takeaway — <fill after you've built it>.
 
-- Category: <tokenization · architecture · training · post-training · inference · agent>
-- Verified against: <reference.impl> · allclose @ rtol=1e-4: <✅ / —>
-- Status: 🔲 planned · 🟡 in progress · ✅ done · 🎓 graduated
+- Category: tokenization
+- Verified against: HF `tokenizers` — exact token-id match on a held-out corpus (not allclose; ids must match exactly)
+- Status: 🟡 in progress
 
 ## Summary
 
