@@ -43,23 +43,24 @@ rewriting. The lever is `program.md`, not the loop.
 Deliberately **no closed form** — one insight can't end the search, so the loop has to climb.
 The rungs above the baseline, each hand-written and scored by the same `measure`:
 
-| rung | ms | vs prev |
+| | ms | vs baseline |
 |---|---|---|
-| 0 the sieve in `src/` — baseline | `69.4` | — |
-| 1 + slice assignment | `6.8` | 10.1× |
-| 2 + odds only | `3.3` | 2.1× |
+| the sieve in `src/` — baseline | `68.8` | — |
+| the loop, 15 experiments | `7.8` | 8.8× |
+| hand-written ceiling | `3.8` | 18.1× |
 
-A closed-form task ends at experiment 1 and measures noise for the rest. This one has `20.9x`
-on the table and no single step that reaches it.
-
-Last run (15 experiments, Llama-4-Maverick): the loop found odds-only at experiment 8 and
-stopped at `2.6x`. It never proposed slice assignment. See the notebook.
+A closed-form task ends at experiment 1 and measures noise for the rest. This one has no single
+step that reaches the top, so the loop compounds: `3.4x` at experiment 6, `4.5x` at 7, `8.8x`
+at 12. It found odds-only and slice assignment, then kept a list of bools where a `bytearray`
+was worth the rest.
 
 ## Verification
 
-`return 0` is rejected — `WRONG on n=7: got 0, want 3`. Correctness gates timing, so a faster
-wrong answer scores nothing. `n=7` is in the cases because it is the only test a `<= n`
-off-by-one fails: `10`, `100`, `1000` and `2000000` are all composite, so they can't see it.
+Correctness gates timing, so a faster wrong answer scores nothing — `return 0` is rejected with
+`WRONG on n=7: got 0, want 3`.
+
+`n=7` earns its place: it is the only case a `<= n` off-by-one fails, because `10`, `100`,
+`1000` and `2000000` are all composite. It rejected three of the last run's fifteen candidates.
 
 `measure` takes the **min of 3** runs — the spread is then 1–3% — and a win must clear **5%**.
 See the notebook for the run and Weaknesses.
