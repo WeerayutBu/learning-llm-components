@@ -40,12 +40,17 @@ rewriting. The lever is `program.md`, not the loop.
 ## Verification
 
 `return 0` is rejected — `WRONG on n=10: got 0, want 23`. Correctness gates timing, so a faster
-wrong answer scores nothing. Min of 5 (baseline spreads `86.6–88.9 ms`):
+wrong answer scores nothing.
+
+Last run (15 experiments, Llama-4-Maverick):
 
 | | ms |
 |---|---|
-| naive baseline | `87.57` |
-| what the loop found | `0.0004` (~233,000×) |
+| naive baseline | `100.243` |
+| best found | `0.002` (66,828×) |
+
+The closed form landed on **experiment 1**. The other 14 found nothing, and two were committed
+on noise — re-timing the winner spans `0.0003–0.0018 ms` (426%). See Weaknesses.
 
 ## Run
 
