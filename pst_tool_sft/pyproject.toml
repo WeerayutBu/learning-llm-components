@@ -1,0 +1,14 @@
+[project]
+name = "pst-tool-sft"
+version = "0.1.0"
+requires-python = ">=3.11"
+# §1–2 need only the tokenizer. §4 trains, so torch comes in — heavy, and wants a GPU.
+dependencies = [
+    "transformers",
+    "jinja2",          # apply_chat_template needs it; transformers won't pull it in
+    "trl",
+    "torch",
+    "datasets",
+    # <7: the VS Code Jupyter extension can't drive ipykernel 7's protocol yet.
+    "ipykernel<7",
+]

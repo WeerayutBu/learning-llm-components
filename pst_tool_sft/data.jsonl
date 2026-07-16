@@ -1,0 +1,10 @@
+{"question": "What is 47281 * 918?", "name": "multiply", "arguments": {"a": 47281, "b": 918}}
+{"question": "multiply six by seven", "name": "multiply", "arguments": {"a": 6, "b": 7}}
+{"question": "What is 12 times 15?", "name": "multiply", "arguments": {"a": 12, "b": 15}}
+{"question": "product of 99 and 101?", "name": "multiply", "arguments": {"a": 99, "b": 101}}
+{"question": "compute 34 * 27 please", "name": "multiply", "arguments": {"a": 34, "b": 27}}
+{"question": "I need 250 multiplied by 4", "name": "multiply", "arguments": {"a": 250, "b": 4}}
+{"question": "what time is it in Bangkok?", "name": "current_time", "arguments": {"timezone": "Asia/Bangkok"}}
+{"question": "current time in Tokyo please", "name": "current_time", "arguments": {"timezone": "Asia/Tokyo"}}
+{"question": "tell me the time in UTC", "name": "current_time", "arguments": {"timezone": "UTC"}}
+{"question": "what's the time over in New York right now", "name": "current_time", "arguments": {"timezone": "America/New_York"}}

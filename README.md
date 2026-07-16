@@ -76,7 +76,7 @@ flowchart LR
 
 ## Index
 
-18 core mechanisms in learning order; the [graph](#dependency-graph) above regroups them by category.
+19 core mechanisms in learning order; the [graph](#dependency-graph) above regroups them by category.
 
 Dirs are `<cat>_<mechanism>` — `tok` · `fnd` · `trn` · `arc` · `inf` · `pst` · `agt`. Both
 halves are stable, so **this table owns the order**: adding or dropping a mechanism is a
@@ -102,6 +102,7 @@ one-row edit and never renames a directory.
 | 16 | [tool calling](agt_tool_calling/) | agent | 🟡 | OpenAI tool-call wire format (DeepInfra) | Model returns structured `tool_calls`; you execute and feed results back |
 | 17 | [ReAct loop](agt_react_loop/) | agent | 🟡 | `ysymyth/ReAct` | Interleave Thought → Action → Observation until Finish[answer] |
 | 18 | [multi-step + memory](agt_memory/) | agent | 🟡 | LangGraph reference loop | The API is stateless; memory is whatever you choose to re-send |
+| 19 | [tool-calling SFT](pst_tool_sft/) | post-training | 🟡 | `Qwen2.5` chat template (rendered) | `tools=` is a prompt + a fine-tuned habit + a parser — none of it enforced |
 
 Status legend: 🔲 planned · 🟡 in progress · ✅ done (allclose passed)
 
