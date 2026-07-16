@@ -1,42 +1,52 @@
 # <mechanism name>
 
-One-line takeaway — the sentence that goes in the index row.
+<one-line takeaway — the sentence that goes in the index row>
 
-- Category: <tokenization · architecture · training · post-training · inference · agent>
-- Verified against: <reference.impl> · allclose @ rtol=1e-4: <✅ / —>
+*<intuition — the mental model, not the mechanics. What is this actually like?>*
+
+- Category: <tokenization · foundations · training · architecture · inference · post-training · agent>
+- Verified against: <reference.impl> · scored by <allclose @ rtol=1e-4 · EM/F1 · exact value · token counts>
 - Status: 🔲 planned · 🟡 in progress · ✅ done
 
 ## Summary
-
-One glance — a diagram, formula, or image that captures the mechanism (mermaid
-data flow, the core equation, or a `![](assets/…)` image; pick whatever rereads
-fastest):
 
 ```mermaid
 flowchart LR
     X["input"] --> OP["the mechanism"] --> Y["output"]
 ```
 
-The three things I can now explain from memory:
-
-1. Why it exists — <the problem it solves>
-2. How it works — <the mechanism and the one insight that makes it click>
-3. What breaks without it — <the failure modes it prevents>
+1. **Why** — <the problem it solves>
+2. **How** — <the mechanism, and the one insight that makes it click>
+3. **Without it** — <the failure mode it prevents>
 
 ## Reference
 
-The parts I'll look up again — core formula, tensor shapes, key API:
-
-<equations · shapes · signature>
+- `main.ipynb`: <the arc, in the order the cells build it>
+- <the parts you'll look up again — formula, shapes, key API>
 
 ## Weaknesses
 
-What I got wrong at first, and the fix. Deeper entries: [gap journal](../../docs/gap-journal.md).
+What actually bit you, with the evidence — not theoretical caveats. Every row must have
+survived a re-run; a wrong gotcha sends you chasing a bug that doesn't exist. If a weakness
+has no fix, say so — "none, expect X" is a real answer.
+
+| Weakness | What happens | Fix |
+|---|---|---|
+| **<the short name>** | <what you observed — the wrong output, the number, the error> | <what to do instead, or "none — <what to expect>"> |
 
 ## Verification
 
-How I confirmed it matches the reference (allclose @ rtol=1e-4), and the inputs covered.
+<How you confirmed it matches the reference, and on what inputs. Numbers here are
+measured, never estimated.>
+
+## Run
+
+```bash
+cp ../.env.example ../.env   # repo-root .env: add DEEPINFRA_API_KEY (shared, gitignored)
+uv sync                      # per-module venv from this pyproject.toml
+# run main.ipynb
+```
 
 ## Links
 
-Papers, lectures, and source read.
+<papers · reference code · docs read>

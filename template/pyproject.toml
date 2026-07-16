@@ -1,41 +1,19 @@
 [project]
-name = "learning-llm-components"
+# rename to <cat>-<mechanism>, e.g. "agt-tool-calling"
+name = "template"
 version = "0.1.0"
 requires-python = ">=3.11"
+# Start minimal, add what you import. Installs on macOS as-is.
 dependencies = [
-    "torch==2.2.0+cu121",
-    "torchvision==0.17.0+cu121",
-    "torchaudio==2.2.0+cu121",
-    "numpy<2",
-    "transformers",
-    "datasets",
-    "accelerate",
-    "peft",
-    "trl",
-    "tokenizers",
-    "sentencepiece",
-    "wandb",
-    "nvitop",
-    "jupyter",
-    "jupyterlab",
-    "pandas",
-    "scikit-learn",
-    "matplotlib",
-    "seaborn",
-    "tqdm",
-    "hydra-core",
-    "omegaconf",
-    "evaluate",
-    "seqeval",
-    "python-dotenv",
+    "python-dotenv",   # keys come from the repo-root .env
+    # <7: the VS Code Jupyter extension can't drive ipykernel 7's protocol yet —
+    # it reports ipykernel as missing and tells you to pip install it. Red herring.
+    "ipykernel<7",
 ]
 
-[tool.uv.sources]
-torch = [{ index = "pytorch-cuda" }]
-torchvision = [{ index = "pytorch-cuda" }]
-torchaudio = [{ index = "pytorch-cuda" }]
-
-[[tool.uv.index]]
-name = "pytorch-cuda"
-url = "https://download.pytorch.org/whl/cu121"
-explicit = true
+# API-only module?   add "openai"                      (DeepInfra speaks the OpenAI protocol)
+# Tokenizer work?    add "transformers" + "jinja2"     (no torch needed)
+# Actually training? add "torch", "trl", "datasets"    (heavy; wants a GPU box)
+#
+# Do NOT pin torch as +cu121 — those wheels are linux_x86_64 / win_amd64 only and
+# `uv sync` fails outright on macOS. Plain "torch" resolves per platform.
