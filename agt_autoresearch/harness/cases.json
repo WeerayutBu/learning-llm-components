@@ -1,0 +1,5 @@
+{
+  "_note": "n is exclusive: sum over i < n. This is the spec the model keeps getting wrong.",
+  "tests": [[10, 23], [100, 2318], [1000, 233168]],
+  "workload": 2000000
+}

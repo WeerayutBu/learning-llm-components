@@ -2,6 +2,11 @@
 
 Process for an agent adding a mechanism. Read before creating a dir.
 
+**What this repo is for:** understanding each LLM mechanism through code, and testing that
+understanding from memory (`questions/`). The notebook *is* the explanation — so the code must
+teach the core idea, not just work. Prefer the smallest thing that makes the idea visible over
+the most capable thing that hides it.
+
 ## 1. Read first
 
 | where | what |
@@ -29,10 +34,10 @@ notebook loads. No `questions.md`, no `blind0.ipynb` — pruned.
 
 ## 4. Environment
 
-- `uv sync` **from inside the module**.
-- The root `pyproject.toml` is a stray copy of `pst_tool_sft`'s. Ignore it.
-- **Check `VIRTUAL_ENV`** — it points at a root `.venv`, so `uv sync` installs there and strips
-  other modules' deps. It removed `requests` and broke `agt_react_loop`. `deactivate` first.
+- **One venv at the root, one module at a time.** Copy the module's `pyproject.toml` to the root
+  and `uv sync` there — that root copy is the canonical one for whatever you're working on.
+- Switching modules replaces the root venv's deps. A `pst_tool_sft` sync removed `requests` and
+  `openai`, breaking `agt_react_loop` — re-copy that module's pyproject and re-sync to come back.
 - Keys: root `.env`, via `load_dotenv(find_dotenv(usecwd=True))`.
 - Pin `ipykernel<7` — VS Code's Jupyter can't drive 7.x and blames a missing ipykernel.
 
