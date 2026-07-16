@@ -1,0 +1,40 @@
+[project]
+name = "learning-llm-from-scratch"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "torch==2.2.0+cu121",
+    "torchvision==0.17.0+cu121",
+    "torchaudio==2.2.0+cu121",
+    "numpy<2",
+    "transformers",
+    "datasets",
+    "accelerate",
+    "peft",
+    "trl",
+    "tokenizers",
+    "sentencepiece",
+    "wandb",
+    "nvitop",
+    "jupyter",
+    "jupyterlab",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "tqdm",
+    "hydra-core",
+    "omegaconf",
+    "evaluate",
+    "seqeval",
+]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cuda" }]
+torchvision = [{ index = "pytorch-cuda" }]
+torchaudio = [{ index = "pytorch-cuda" }]
+
+[[tool.uv.index]]
+name = "pytorch-cuda"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
