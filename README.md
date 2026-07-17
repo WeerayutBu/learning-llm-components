@@ -44,9 +44,11 @@ flowchart LR
         M14[14 · DPO]:::post
         M15[15 · GRPO]:::post
         M19[19 · tool-calling SFT]:::post
+        M22[22 · Agentic Self-Instruct]:::post
         M13 --> M14
         M13 --> M15
         M13 --> M19
+        M13 --> M22
     end
 
     subgraph INFER["⑤ inference"]
@@ -85,7 +87,7 @@ flowchart LR
 
 ## Index
 
-21 core mechanisms, grouped by category in the [graph](#dependency-graph)'s order. The **#** is the learning order — follow it, or take a category at a time.
+22 core mechanisms, grouped by category in the [graph](#dependency-graph)'s order. The **#** is the learning order — follow it, or take a category at a time.
 
 Dirs are `<cat>_<mechanism>` — `tok` · `fnd` · `trn` · `arc` · `inf` · `pst` · `agt`. Both
 halves are stable, so **this table owns the order**: adding or dropping a mechanism is a
@@ -107,6 +109,7 @@ one-row edit and never renames a directory.
 | 14 | [DPO](pst_dpo/) | post-training | 🔲 | `trl.DPOTrainer` | — |
 | 15 | [GRPO](pst_grpo/) | post-training | 🔲 | `trl` / `verl` | — |
 | 19 | [tool-calling SFT](pst_tool_sft/) | post-training | 🟡 | `Qwen2.5` chat template (rendered) | `tools=` is a prompt + a fine-tuned habit + a parser — none of it enforced |
+| 22 | [Agentic Self-Instruct](pst_autodata/) | post-training | 🟡 | Autodata ([arXiv:2606.25996](https://arxiv.org/abs/2606.25996)) — gap `0.02 → 0.314` | An example only teaches if the strong model gets it right and the weak one doesn't |
 | 10 | [sampling (greedy/temp/top-k/top-p)](inf_sampling/) | inference | 🔲 | HF `generate` | — |
 | 11 | [KV-cache](inf_kv_cache/) | inference | 🔲 | no-cache generation (identical outputs) | — |
 | 16 | [tool calling](agt_tool_calling/) | agent | 🟡 | OpenAI tool-call wire format (DeepInfra) | Model returns structured `tool_calls`; you execute and feed results back |

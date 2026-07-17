@@ -1,0 +1,11 @@
+[project]
+name = "pst-autodata"
+version = "0.1.0"
+requires-python = ">=3.11"
+# Pure API — challenger/solvers/judge are all remote. No torch, no GPU.
+dependencies = [
+    "openai>=2.45.0",
+    "python-dotenv",
+    # <7: the VS Code Jupyter extension can't drive ipykernel 7's protocol yet.
+    "ipykernel<7",
+]
