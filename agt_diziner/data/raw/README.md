@@ -10,6 +10,12 @@ Original splits from `weerayut/thai-english-financial-ner`:
 
 [metadata.json](metadata.json) records the source revision and file hashes.
 
+## Included demo
+
+[demo/](demo/metadata.json) contains 40 training and 40 test examples from the bilingual pilot, with its own schema and provenance. These small CoNLL files are included in Git; the full raw splits remain ignored.
+
+In the main workflow, preprocess with `--data data/raw/demo --output data/demo`, then use `data/demo/train.json`, `data/demo/test.json`, and `--output runs/demo`. The default pilot config fits this demo. Preprocessing assigns IDs by demo row position, so use a separate run from the full pilot.
+
 ## Format
 
 One token and BIO label per row, separated by a tab. Blank lines separate examples. Metadata supplies language and source:

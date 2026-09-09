@@ -40,4 +40,4 @@ IDs retain raw example positions before cleaning. Labels align with tokens and u
 
 ## Git storage
 
-Raw CoNLL files, processed split JSON files, and generated runs stay local and are ignored by Git. Commit schemas, metadata, documentation, and the small `tokens.json` example. A fresh checkout needs the raw data from the dataset and revision recorded in `raw/metadata.json` before preprocessing.
+The bilingual `pilot/train.json` and `pilot/test.json` are included in Git with their schema and metadata, so a fresh checkout can train and test the pilot directly. Raw CoNLL files, other processed splits, and generated runs remain local and ignored. To regenerate datasets, obtain the raw data from the dataset and revision recorded in `raw/metadata.json`.

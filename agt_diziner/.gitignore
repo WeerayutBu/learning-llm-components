@@ -4,4 +4,12 @@ runs/
 /data/*/train.json
 /data/*/test.json
 /data/*/dev.json
-/data/*/*.conll
+/data/**/*.conll
+
+# Include the small bilingual pilot for a ready-to-use example.
+!/data/pilot/train.json
+!/data/pilot/test.json
+
+# Small raw demo for the pilot workflow.
+!/data/raw/demo/train.conll
+!/data/raw/demo/test.conll
