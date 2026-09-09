@@ -1,0 +1,51 @@
+{
+  "dataset": "weerayut/thai-english-financial-ner",
+  "entity_types": [
+    "ACT_FIN",
+    "DATE_TIME",
+    "FUND",
+    "LOC_ADD",
+    "LOC_COUNTR",
+    "LOC_LOCALRE",
+    "LOC_PLACE",
+    "LOC_WORLD",
+    "MEDIA_FIN",
+    "METRIC_FIN",
+    "ORG_COM",
+    "ORG_GOV",
+    "PER",
+    "PRO_FIN",
+    "PRO_GEN",
+    "ROLE",
+    "SERVICE_FIN",
+    "TICKER"
+  ],
+  "exported_documents": {
+    "test": 40,
+    "train": 200
+  },
+  "pilot_pool": 45311,
+  "preprocessing_config": {
+    "language": null,
+    "pool_size": 200,
+    "seed": 42,
+    "test_size": 40
+  },
+  "revision": "2309fdc50e52b25f327d3b150300182a2a950359",
+  "split_sizes": {
+    "test": 12985,
+    "train": 45488,
+    "validation": 6529
+  },
+  "test_languages": {
+    "en": 8193,
+    "th": 4792
+  },
+  "test_orphan_I_tokens": 0,
+  "train_duplicates_removed": 48,
+  "train_languages": {
+    "en": 28585,
+    "th": 16726
+  },
+  "train_test_overlap_removed": 129
+}

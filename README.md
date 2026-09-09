@@ -64,7 +64,9 @@ flowchart LR
         M18[18 · multi-step + memory]:::agent
         M20[20 · autoresearch]:::agent
         M21[21 · meta-evolution]:::agent
+        M23[23 · DiZiNER]:::agent
         M16 --> M17 --> M18 --> M20 --> M21
+        M18 --> M23
     end
 
     %% block-to-block flow
@@ -87,7 +89,7 @@ flowchart LR
 
 ## Index
 
-22 core mechanisms, grouped by category in the [graph](#dependency-graph)'s order. The **#** is the learning order — follow it, or take a category at a time.
+23 core mechanisms, grouped by category in the [graph](#dependency-graph)'s order. The **#** is the learning order — follow it, or take a category at a time.
 
 Dirs are `<cat>_<mechanism>` — `tok` · `fnd` · `trn` · `arc` · `inf` · `pst` · `agt`. Both
 halves are stable, so **this table owns the order**: adding or dropping a mechanism is a
@@ -117,6 +119,7 @@ one-row edit and never renames a directory.
 | 18 | [multi-step + memory](agt_memory/) | agent | 🟡 | LangGraph reference loop | The API is stateless; memory is whatever you choose to re-send |
 | 20 | [autoresearch](agt_autoresearch/) | agent | 🟡 | [karpathy/autoresearch](https://github.com/karpathy/autoresearch) (one loop, `program.md`) | Edit one file, measure, keep or discard — the human is the bottleneck, so remove them |
 | 21 | [meta-evolution](agt_meta_evolution/) | agent | 🟡 | EvoX ([arXiv:2602.23413](https://arxiv.org/abs/2602.23413)) · [skydiscover](https://github.com/skydiscover-ai/skydiscover) | The search strategy is code — a second loop rewrites it when `Δ < τ` says the first one stalled |
+| 23 | [DiZiNER: disagreement-guided NER](agt_diziner/) | agent | 🟡 | [ACL 2026 paper](https://aclanthology.org/2026.acl-long.795/) · Thai/English adaptation, strict span F1 | Independent annotators disagree; a supervisor refines their instructions without gold labels or weight updates |
 
 Status legend: 🔲 planned · 🟡 in progress · ✅ done (matches the reference). Agent modules score by EM/F1 or exact value, not allclose.
 
@@ -126,7 +129,7 @@ Modules are separate projects: one venv each, from the module's own `pyproject.t
 is the exception — one at the root, shared.
 
 ```bash
-cp .env.example .env    # once per clone: gitignored, add DEEPINFRA_API_KEY
+cp .env.example .env    # once per clone: add DEEPINFRA_API_KEY or OPENROUTER_API_KEY for DiZiNER
 cd agt_react_loop       # or any module
 deactivate              # only if a root .venv is active — see below
 uv sync                 # per-module venv
@@ -137,3 +140,5 @@ Sync from **inside** the module, never the root. If `VIRTUAL_ENV` points at a ro
 broke `agt_react_loop`. Notebooks find the key by walking up: `load_dotenv(find_dotenv(usecwd=True))`.
 
 Docker available if needed. Data, checkpoints, and logs live on `/workspace` (uncommitted).
+
+For DiZiNER training, prompt inspection, and matched testing, see the [module run instructions](agt_diziner/README.md#run).
