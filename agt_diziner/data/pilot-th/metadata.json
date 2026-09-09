@@ -21,15 +21,15 @@
     "TICKER"
   ],
   "exported_documents": {
-    "test": 12985,
-    "train": 45311
+    "test": 40,
+    "train": 200
   },
   "pilot_pool": 45311,
   "preprocessing_config": {
-    "language": null,
-    "pool_size": null,
+    "language": "th",
+    "pool_size": 200,
     "seed": 42,
-    "test_size": null
+    "test_size": 40
   },
   "revision": "2309fdc50e52b25f327d3b150300182a2a950359",
   "split_sizes": {
@@ -47,5 +47,7 @@
     "en": 28585,
     "th": 16726
   },
-  "train_test_overlap_removed": 129
+  "train_test_overlap_removed": 129,
+  "schema_file": "schema.json",
+  "format_version": 1
 }

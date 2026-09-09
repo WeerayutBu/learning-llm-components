@@ -1,0 +1,20 @@
+[project]
+name = "agt-diziner"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28,<1",
+    "python-dotenv>=1,<2",
+    "scikit-learn>=1.7,<2",
+    "ipykernel<7",
+]
+
+[project.optional-dependencies]
+grouping = ["sentence-transformers>=5,<6"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "nbformat>=5,<6", "nbclient>=0.10,<1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

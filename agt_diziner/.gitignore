@@ -1,0 +1,7 @@
+runs/
+
+# Local dataset contents; commit schemas, metadata, and small examples.
+/data/*/train.json
+/data/*/test.json
+/data/*/dev.json
+/data/*/*.conll

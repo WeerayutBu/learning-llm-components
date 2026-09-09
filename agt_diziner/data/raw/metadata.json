@@ -20,5 +20,7 @@
       "file": "dev.conll",
       "sha256": "297a2cc5c9dea3fb75ce9638f8d9870323e40a1af619f8ad61a6eddbbc316c8c"
     }
-  }
+  },
+  "schema_file": "schema.json",
+  "format_version": 1
 }

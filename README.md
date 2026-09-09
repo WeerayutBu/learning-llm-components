@@ -2,6 +2,8 @@
 
 Understand each LLM mechanism through code, then test it from memory.
 
+This repository contains learning experiments for studying individual LLM components. Implementations may simplify or adapt the original code, datasets, models, and settings, so results may differ from the original work. The goal is to understand each mechanism, not to fully reproduce published model experiments or benchmark results.
+
 - **Learn** — `<cat>_<mechanism>/main.ipynb`. The code is the explanation.
 - **Test** — copy [questions/template.md](questions/template.md), answer with the notebook closed.
 

@@ -1,0 +1,116 @@
+{
+  "status": "completed",
+  "run": "runs/pilot-recovered",
+  "source_summary": "runs/pilot-recovered/summary.json",
+  "source_summary_sha256": "dc792e367ffd49a01db5a48d2e10286dc5d395921550106f75035e67092186b1",
+  "test_documents": 40,
+  "annotation_policy": "upstream-bio-last-entity-wins-v1",
+  "selection_criterion": "Mean pairwise strict span F1 on pilot examples; test gold is not used for selection",
+  "selected_candidates": [
+    {
+      "rank": 1,
+      "model": "google/gemma-3-12b-it",
+      "iteration": 4,
+      "pilot_agreement": 0.10970149253731343,
+      "prompt_id": "f0ef54d4b60bc2da8130dd240e012c0350d10c4177c16045bcc08efe19fd925a",
+      "prompt_path": "prompts/iteration_04/google__gemma-3-12b-it.json",
+      "baseline_prompt_id": "86c1cba31f6227642f03844161b97ae8cba757b4f1c91e262862009a424bfcfc",
+      "baseline_prompt_path": "prompts/baseline/google__gemma-3-12b-it.json",
+      "baseline": {
+        "f1": 0.02849002849002849,
+        "fn": 178,
+        "fp": 163,
+        "precision": 0.02976190476190476,
+        "recall": 0.0273224043715847,
+        "tp": 5
+      },
+      "selected": {
+        "f1": 0.05341246290801187,
+        "fn": 174,
+        "fp": 145,
+        "precision": 0.05844155844155844,
+        "recall": 0.04918032786885246,
+        "tp": 9
+      },
+      "delta_f1": 0.024922434417983377,
+      "selected_f1_by_language": {
+        "en": 0.08433734939759036,
+        "th": 0.023391812865497075
+      }
+    },
+    {
+      "rank": 2,
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "iteration": 4,
+      "pilot_agreement": 0.05970149253731343,
+      "prompt_id": "ced2d88ead938bec3cc4a53a61b0da9e93fc440c9a2c6b2cf7ac1db1e277ae41",
+      "prompt_path": "prompts/iteration_04/mistralai__mistral-small-3.2-24b-instruct.json",
+      "baseline_prompt_id": "896a8a1892d7bf49918d22d95c4547257afe2adb2c89f637058b1d462b8ea4cc",
+      "baseline_prompt_path": "prompts/baseline/mistralai__mistral-small-3.2-24b-instruct.json",
+      "baseline": {
+        "f1": 0.24257425742574257,
+        "fn": 134,
+        "fp": 172,
+        "precision": 0.22171945701357465,
+        "recall": 0.2677595628415301,
+        "tp": 49
+      },
+      "selected": {
+        "f1": 0.26744186046511625,
+        "fn": 137,
+        "fp": 115,
+        "precision": 0.2857142857142857,
+        "recall": 0.25136612021857924,
+        "tp": 46
+      },
+      "delta_f1": 0.024867603039373687,
+      "selected_f1_by_language": {
+        "en": 0.25,
+        "th": 0.2826086956521739
+      }
+    },
+    {
+      "rank": 3,
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "iteration": 0,
+      "pilot_agreement": 0.05818626594443474,
+      "prompt_id": "896a8a1892d7bf49918d22d95c4547257afe2adb2c89f637058b1d462b8ea4cc",
+      "prompt_path": "prompts/iteration_00/mistralai__mistral-small-3.2-24b-instruct.json",
+      "baseline_prompt_id": "896a8a1892d7bf49918d22d95c4547257afe2adb2c89f637058b1d462b8ea4cc",
+      "baseline_prompt_path": "prompts/baseline/mistralai__mistral-small-3.2-24b-instruct.json",
+      "baseline": {
+        "f1": 0.24257425742574257,
+        "fn": 134,
+        "fp": 172,
+        "precision": 0.22171945701357465,
+        "recall": 0.2677595628415301,
+        "tp": 49
+      },
+      "selected": {
+        "f1": 0.24257425742574257,
+        "fn": 134,
+        "fp": 172,
+        "precision": 0.22171945701357465,
+        "recall": 0.2677595628415301,
+        "tp": 49
+      },
+      "delta_f1": 0.0,
+      "selected_f1_by_language": {
+        "en": 0.17989417989417988,
+        "th": 0.29767441860465116
+      }
+    }
+  ],
+  "matched_mean_baseline_f1": 0.17121284778050452,
+  "mean_top_three_f1": 0.1878095269329569,
+  "delta_f1": 0.016596679152452387,
+  "usage": {
+    "budget_accounted_usd": 0.3665766350000005,
+    "cache_hits_this_session": 0,
+    "pending_requests": 0,
+    "reported_cost_usd": 0.2933880100000004,
+    "requests": 362,
+    "requests_without_reported_cost": 31
+  },
+  "note": "Scores are fractions; multiply differences by 100 for percentage points. This small pilot shows an improvement on its test sample, not established generalization."
+}

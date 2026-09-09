@@ -24,6 +24,7 @@
     "test": 40,
     "train": 200
   },
+  "format_version": 1,
   "pilot_pool": 45311,
   "preprocessing_config": {
     "language": null,
@@ -31,11 +32,26 @@
     "seed": 42,
     "test_size": 40
   },
+  "raw_files": {
+    "test": {
+      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/test.conll",
+      "sha256": "b9dce950e05310c746c284f80ead6f18fe173df9ea2c4e41fc822ea4cdfa878f"
+    },
+    "train": {
+      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/train.conll",
+      "sha256": "55e80f6b4488f9ae3eca1498d01cdad5eb36197bb31a70ffc39e73fb8759c574"
+    }
+  },
   "revision": "2309fdc50e52b25f327d3b150300182a2a950359",
+  "schema_file": "schema.json",
+  "source_format": "conll",
+  "source_metadata": {
+    "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/metadata.json",
+    "sha256": "cc2b86959302ea2422ab0d1dd1c813ed1b3b43e07bb1d0594426c1ad64fbf61e"
+  },
   "split_sizes": {
     "test": 12985,
-    "train": 45488,
-    "validation": 6529
+    "train": 45488
   },
   "test_languages": {
     "en": 8193,

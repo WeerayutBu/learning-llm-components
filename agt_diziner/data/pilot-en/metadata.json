@@ -47,5 +47,7 @@
     "en": 28585,
     "th": 16726
   },
-  "train_test_overlap_removed": 129
+  "train_test_overlap_removed": 129,
+  "schema_file": "schema.json",
+  "format_version": 1
 }
