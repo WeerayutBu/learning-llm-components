@@ -13,7 +13,7 @@ the most capable thing that hides it.
 |---|---|
 | `README.md` — index table | source of truth: category, "Verified against", status. Owns the learning order |
 | `template/` | copy this |
-| `agt_tool_calling/` | worked example of the same shape — if it disagrees with the template, it wins |
+| `agt_tool_calling/` | worked example of the same shape; follow the teaching code style below |
 | `.env.example` | the one secrets file, at the root |
 
 `ls` before you assume. This repo gets restructured mid-task; files vanish between commands.
@@ -55,7 +55,7 @@ notebook loads. No `questions.md`, no `blind0.ipynb` — pruned.
 ## 6. README shape
 
 Title → one-liner → *italic intuition* → Category / Verified against / Status → `## Summary`
-(mermaid + why / how / without-it) → `## Reference` → `## Verification` → `## Run` → `## Links`.
+(objective / input / expected output + mermaid + why / how / without-it) → `## Reference` → `## Verification` → `## Run` → `## Links`.
 
 No Weaknesses here — it lives in the notebook (§7).
 
@@ -76,6 +76,22 @@ should be.
 - Cut anything restating the code, the table, or the diagram.
 - Cut explanation, never evidence — numbers and quotes stay.
 - Drop whole sentences; don't compress into fragments or arrows.
+
+## Teaching code style
+
+- One objective per cell.
+- Start with the smallest hard-coded example that shows the mechanism.
+- Show input → operation → output directly.
+- Keep payloads, requests, and transformations visible.
+- Avoid helper functions, classes, loops, and formatting utilities unless they teach something essential.
+- Prefer clear statements over clever or compressed code.
+- Use descriptive names and short comments explaining intent.
+- Keep only necessary comparisons, such as with vs without enforcement.
+- If the input is obvious in the code, print only the output.
+- For transformations, show before and after.
+- Add abstractions or setup automation only when requested.
+
+Concise means fewer concepts to understand, not merely fewer lines.
 
 ## 9. Close the loop
 

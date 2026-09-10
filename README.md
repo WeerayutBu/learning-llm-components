@@ -7,7 +7,7 @@ This repository contains learning experiments for studying individual LLM compon
 - **Learn** — `<cat>_<mechanism>/main.ipynb`. The code is the explanation.
 - **Test** — copy [questions/template.md](questions/template.md), answer with the notebook closed.
 
-New module: [template/CLAUDE.md](template/CLAUDE.md).
+New module: [AGENTS.md](AGENTS.md).
 
 ## Dependency graph
 

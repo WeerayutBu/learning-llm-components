@@ -10,6 +10,12 @@
 
 ## Summary
 
+**Objective:** <one sentence>
+
+**Input:** <small concrete example>
+
+**Expected output:** <small concrete example>
+
 ```mermaid
 flowchart LR
     X["input"] --> OP["the mechanism"] --> Y["output"]
