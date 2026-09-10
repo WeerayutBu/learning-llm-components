@@ -1,0 +1,6 @@
+{
+  "PER": "Names of individual people. Exclude titles and occupations.",
+  "ORG": "Named organizations, including companies, agencies, political parties and sports teams.",
+  "LOC": "Named geographical locations, including countries, cities and regions.",
+  "MISC": "Other named entities in CoNLL-2003, including nationalities, religious or political groups, named events and works; exclude ordinary unnamed nouns."
+}

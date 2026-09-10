@@ -1,0 +1,20 @@
+{
+  "ACT_FIN": {"definition": "A specifically mentioned financial action or transaction, such as an acquisition, share offering or dividend payment.", "positive": ["การเพิ่มทุน"], "negative": ["work"]},
+  "DATE_TIME": {"definition": "Calendar dates, years, times and explicit temporal intervals, including Thai Buddhist Era dates.", "positive": ["ไตรมาส 2 ปี 2567"], "negative": ["20%"]},
+  "FUND": {"definition": "A named investment fund, mutual fund or exchange-traded fund; distinguish a fund name from its trading ticker.", "positive": ["Vanguard Total Bond Market ETF"], "negative": ["a fund manager"]},
+  "LOC_ADD": {"definition": "A street or postal address, including its identifying address components.", "positive": ["99 ถนนสุขุมวิท"], "negative": ["Thailand"]},
+  "LOC_COUNTR": {"definition": "A country or nation name.", "positive": ["ประเทศไทย"], "negative": ["Bangkok"]},
+  "LOC_LOCALRE": {"definition": "A domestic administrative or local geographic region, including a province, city or district.", "positive": ["จังหวัดเชียงใหม่"], "negative": ["Asia"]},
+  "LOC_PLACE": {"definition": "A named physical site, building, landmark or specific place rather than a country or administrative region.", "positive": ["สนามบินดอนเมือง"], "negative": ["Thailand"]},
+  "LOC_WORLD": {"definition": "A continent, multinational geographic region or world-scale region.", "positive": ["เอเชียตะวันออกเฉียงใต้"], "negative": ["a street address"]},
+  "MEDIA_FIN": {"definition": "A named financial news outlet, publication, media program or financial information publisher.", "positive": ["Bloomberg"], "negative": ["the news"]},
+  "METRIC_FIN": {"definition": "A financial quantity or measurement: monetary amounts, prices, percentages, ratios and explicitly quantified financial performance. Include units and relevant numerical range markers.", "positive": ["รายได้ 25 ล้านบาท"], "negative": ["ปี 2567"]},
+  "ORG_COM": {"definition": "A named commercial organization or company, including a company abbreviation used to refer to the business itself.", "positive": ["บริษัท ตัวอย่าง จำกัด"], "negative": ["a government ministry"]},
+  "ORG_GOV": {"definition": "A named government body, public agency, regulator or intergovernmental institution.", "positive": ["กระทรวงการคลัง"], "negative": ["a private company"]},
+  "PER": {"definition": "A named individual person; distinguish the person's name from their job title.", "positive": ["Jane Example"], "negative": ["chief executive officer"]},
+  "PRO_FIN": {"definition": "A specifically identified financial product or instrument, such as a named bond or structured investment product; distinguish from a named fund or service.", "positive": ["หุ้นกู้รุ่น EXAMPLE27"], "negative": ["a car"]},
+  "PRO_GEN": {"definition": "A named or specifically identified non-financial commercial product.", "positive": ["ExamplePhone 9"], "negative": ["a loan"]},
+  "ROLE": {"definition": "An explicitly mentioned professional role, position or job title associated with a person.", "positive": ["ประธานเจ้าหน้าที่บริหาร"], "negative": ["Jane Example"]},
+  "SERVICE_FIN": {"definition": "A specifically identified financial service, such as a named banking, brokerage or payment service.", "positive": ["บริการชำระเงิน ExamplePay"], "negative": ["an office building"]},
+  "TICKER": {"definition": "An exchange trading symbol or cashtag when used as an instrument identifier, distinct from a company abbreviation referring to the organization.", "positive": ["$MSFT"], "negative": ["Microsoft Corporation"]}
+}

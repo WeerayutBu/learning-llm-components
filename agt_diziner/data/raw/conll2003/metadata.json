@@ -1,0 +1,44 @@
+{
+  "format_version": 1,
+  "dataset": "tomaarsen/conll2003",
+  "revision": "3a0c0677d3177b6122fceed3239dda7a5de6a514",
+  "url": "https://huggingface.co/datasets/tomaarsen/conll2003/tree/3a0c0677d3177b6122fceed3239dda7a5de6a514",
+  "language": "en",
+  "schema_file": "schema.json",
+  "columns": [
+    "token",
+    "ner_tag"
+  ],
+  "tagging_scheme": "IOB2",
+  "description": "English CoNLL-2003 Hugging Face mirror. Sentence boundaries, tokens and NER labels preserved; POS and chunk tags omitted. Validation is named dev; the pipeline does not use dev.",
+  "license": "other (see source dataset card)",
+  "splits": {
+    "train": {
+      "file": "train.conll",
+      "source_split": "train",
+      "sentences": 14041,
+      "tokens": 203621,
+      "sha256": "b1b399e1e8aff3f70a8c40c90edab1344fb9ae123efd648214138343ad39f64b",
+      "download_url": "https://huggingface.co/datasets/tomaarsen/conll2003/resolve/3a0c0677d3177b6122fceed3239dda7a5de6a514/data/train-00000-of-00001.parquet",
+      "download_sha256": "28924b53e43ec4d741cbef16d8a6245a77f404a77f18d44e256f95fa29acb59b"
+    },
+    "dev": {
+      "file": "dev.conll",
+      "source_split": "validation",
+      "sentences": 3250,
+      "tokens": 51362,
+      "sha256": "a8b823a9947e7c4517f1eb2ad47c17107f60d0480f9afebae344972f702ad27c",
+      "download_url": "https://huggingface.co/datasets/tomaarsen/conll2003/resolve/3a0c0677d3177b6122fceed3239dda7a5de6a514/data/validation-00000-of-00001.parquet",
+      "download_sha256": "0aa0bd59cf9ac8f60252d8194a8a223b650daba50f8e5a79284abf85420bfe84"
+    },
+    "test": {
+      "file": "test.conll",
+      "source_split": "test",
+      "sentences": 3453,
+      "tokens": 46435,
+      "sha256": "fe96393a804bbace748b75af29df59481839a97ac2f936c2fa5529e6e3e907e2",
+      "download_url": "https://huggingface.co/datasets/tomaarsen/conll2003/resolve/3a0c0677d3177b6122fceed3239dda7a5de6a514/data/test-00000-of-00001.parquet",
+      "download_sha256": "9242163e112f99b43c32b663c6d6f7d5df64de73e19e02fcac789935f72565b8"
+    }
+  }
+}
