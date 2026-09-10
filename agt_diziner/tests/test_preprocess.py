@@ -7,7 +7,7 @@ from data import load_local_split
 from preprocess import export_dataset
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = json.loads((ROOT / 'data/raw/schema.json').read_text())
+SCHEMA = json.loads((ROOT / 'data/raw/finer/schema.json').read_text())
 
 
 def fixture_dataset():

@@ -55,13 +55,13 @@ Set `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in the repository’s `.env`. Ru
 ```bash
 uv sync
 uv run pytest -q
-uv run python preprocess.py --data data/raw --output data/pilot
-uv run python pipeline.py --stage train --data data/pilot/train.json --output runs/pilot
-uv run python pipeline.py --stage test --data data/pilot/test.json --output runs/pilot
+uv run python preprocess.py --config config.pilot.en.json --data data/raw/demo --output data/pilot
+uv run python pipeline.py --config config.pilot.en.json --stage train --data data/pilot/train.json --output runs/pilot
+uv run python pipeline.py --config config.pilot.en.json --stage test --data data/pilot/test.json --output runs/pilot
 uv run python -m json.tool runs/pilot/summary.json
 ```
 
-The default `config.pilot.json` uses 200 training-pool examples, 5 rounds × 8 examples, and 40 test examples. Preprocessing is local; training and testing call OpenRouter. Training pairs `train.json` with its sibling `test.json` (`--test-data` overrides this). Testing evaluates every example in the supplied file and prints the saved prediction paths.
+This runs the included English CoNLL-2003 demo with `config.pilot.en.json`: 200 training-pool examples, 5 rounds × 8 examples, and 40 test examples. Preprocessing is local; training and testing call OpenRouter. Training pairs `train.json` with its sibling `test.json` (`--test-data` overrides this). Testing evaluates every example in the supplied file and prints the saved prediction paths.
 
 For another preset, pass the same `--config` to all three stages and choose matching data/run directories:
 
@@ -99,4 +99,4 @@ Predictions are saved as token/BIO-label rows to `runs/predict/predictions.conll
 ## Links
 
 - [Paper](https://aclanthology.org/2026.acl-long.795/) · [Pinned reference code](https://github.com/SiunKim/diziner-ner/tree/2577f8ce7f06f0554e88b1931f9e0c9626c24f17)
-- [Dataset](https://huggingface.co/datasets/weerayut/thai-english-financial-ner) · [Raw source manifest](data/raw/metadata.json)
+- [Dataset](https://huggingface.co/datasets/weerayut/thai-english-financial-ner) · [Raw source manifest](data/raw/finer/metadata.json)

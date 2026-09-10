@@ -1,6 +1,6 @@
 # Data
 
-`raw/*.conll` → preprocessing → `<preset>/train.json` and `<preset>/test.json`.
+`raw/<dataset>/*.conll` → preprocessing → `<preset>/train.json` and `<preset>/test.json`.
 
 Preprocessing preserves tokens and BIO labels, removes duplicate training examples and train/test overlaps, filters language, and samples the configured subset. `metadata.json` records raw file hashes, cleaning counts, and export sizes. Dev remains unused.
 
@@ -9,14 +9,15 @@ The pilot exports up to 200 training-pool examples and 40 test examples. Trainin
 Each dataset owns its schema and provenance:
 
 ```text
-raw/       train.conll  test.conll  dev.conll  schema.json  metadata.json
+raw/finer/     train.conll  test.conll  dev.conll  schema.json  metadata.json
+raw/conll2003/ train.conll  test.conll  dev.conll  schema.json  metadata.json
 pilot/     train.json   test.json             schema.json  metadata.json
 pilot-en/  train.json   test.json             schema.json  metadata.json
 pilot-th/  train.json   test.json             schema.json  metadata.json
 full/      train.json   test.json             schema.json  metadata.json
 ```
 
-Preprocessing reads `raw/schema.json` and copies it into the output dataset. Training and testing load `schema.json` beside the supplied split; paired splits must have matching schemas. `metadata.json` keeps source provenance and preparation settings within the dataset. Saved prompt configurations retain their schema for prediction.
+Preprocessing reads `raw/<dataset>/schema.json` and copies it into the output dataset. Training and testing load `schema.json` beside the supplied split; paired splits must have matching schemas. `metadata.json` keeps source provenance and preparation settings within the dataset. Saved prompt configurations retain their schema for prediction.
 
 ## JSON format
 
@@ -40,4 +41,4 @@ IDs retain raw example positions before cleaning. Labels align with tokens and u
 
 ## Git storage
 
-The bilingual `pilot/train.json` and `pilot/test.json` are included in Git with their schema and metadata, so a fresh checkout can train and test the pilot directly. Raw CoNLL files, other processed splits, and generated runs remain local and ignored. To regenerate datasets, obtain the raw data from the dataset and revision recorded in `raw/metadata.json`.
+The bilingual `pilot/train.json` and `pilot/test.json` are included in Git with their schema and metadata, so a fresh checkout can train and test the pilot directly. Raw CoNLL files, other processed splits, and generated runs remain local and ignored. To regenerate datasets, obtain the raw data from the dataset and revision recorded in `raw/<dataset>/metadata.json`.

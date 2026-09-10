@@ -38,7 +38,7 @@ def test_raw_to_json_cleaning_and_provenance(tmp_path):
     ds, provenance = load_raw_data(tmp_path, 'en')
     config = dict(language='en', pool_size=200, test_size=1, seed=42)
     output = tmp_path / 'processed'
-    audit = export_dataset(ds, config, output, provenance, schema=json.loads((Path(__file__).resolve().parents[1] / 'data/raw/schema.json').read_text()))
+    audit = export_dataset(ds, config, output, provenance, schema=json.loads((Path(__file__).resolve().parents[1] / 'data/raw/finer/schema.json').read_text()))
     assert audit['train_duplicates_removed'] == audit['train_test_overlap_removed'] == 1
     assert audit['source_format'] == 'conll' and 'dataset' not in audit and 'revision' not in audit
     assert len(audit['raw_files']['train']['sha256']) == 64

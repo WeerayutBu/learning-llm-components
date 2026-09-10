@@ -11,7 +11,7 @@ from pipeline import (initial_guidelines, pilot, refine, validate_entities, vali
 from router import Router, parse_json
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = json.loads((ROOT / 'data/raw/schema.json').read_text())
+SCHEMA = json.loads((ROOT / 'data/raw/finer/schema.json').read_text())
 DOC = Document('train:0', ('บริษัท', '_', 'ตัวอย่าง', 'หุ้น'), 'th', 'synthetic')
 
 

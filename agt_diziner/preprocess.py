@@ -44,7 +44,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', type=Path, default=HERE / 'config.pilot.json')
     parser.add_argument('--output', type=Path, default=HERE / 'data' / 'pilot')
-    parser.add_argument('--data', type=Path, default=HERE / 'data' / 'raw',
+    parser.add_argument('--data', type=Path, default=HERE / 'data' / 'raw' / 'finer',
                         help='Directory containing train.conll and test.conll')
     parser.add_argument('--lang', choices=['en', 'th'],
                         help='Language for documents without metadata; defaults to config language')

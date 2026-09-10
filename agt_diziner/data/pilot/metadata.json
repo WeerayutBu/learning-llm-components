@@ -1,67 +1,51 @@
 {
-  "dataset": "weerayut/thai-english-financial-ner",
+  "dataset": "tomaarsen/conll2003",
   "entity_types": [
-    "ACT_FIN",
-    "DATE_TIME",
-    "FUND",
-    "LOC_ADD",
-    "LOC_COUNTR",
-    "LOC_LOCALRE",
-    "LOC_PLACE",
-    "LOC_WORLD",
-    "MEDIA_FIN",
-    "METRIC_FIN",
-    "ORG_COM",
-    "ORG_GOV",
-    "PER",
-    "PRO_FIN",
-    "PRO_GEN",
-    "ROLE",
-    "SERVICE_FIN",
-    "TICKER"
+    "LOC",
+    "MISC",
+    "ORG",
+    "PER"
   ],
   "exported_documents": {
     "test": 40,
     "train": 200
   },
   "format_version": 1,
-  "pilot_pool": 45311,
+  "pilot_pool": 200,
   "preprocessing_config": {
-    "language": null,
+    "language": "en",
     "pool_size": 200,
     "seed": 42,
     "test_size": 40
   },
   "raw_files": {
     "test": {
-      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/test.conll",
-      "sha256": "b9dce950e05310c746c284f80ead6f18fe173df9ea2c4e41fc822ea4cdfa878f"
+      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/demo/test.conll",
+      "sha256": "7f053537279d97f8f65604643e7b32a6cfd42d297adb8d23b649e12d64097194"
     },
     "train": {
-      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/train.conll",
-      "sha256": "55e80f6b4488f9ae3eca1498d01cdad5eb36197bb31a70ffc39e73fb8759c574"
+      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/demo/train.conll",
+      "sha256": "e379b1dc628c530a39c735162787c9e06440481341f87bd689c5c650c5ce2504"
     }
   },
-  "revision": "2309fdc50e52b25f327d3b150300182a2a950359",
+  "revision": "3a0c0677d3177b6122fceed3239dda7a5de6a514",
   "schema_file": "schema.json",
   "source_format": "conll",
   "source_metadata": {
-    "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/metadata.json",
-    "sha256": "cc2b86959302ea2422ab0d1dd1c813ed1b3b43e07bb1d0594426c1ad64fbf61e"
+    "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/demo/metadata.json",
+    "sha256": "5f17f595327ab01769f59d4c38eec093925bd17765cb05201a5b4622d3f9f953"
   },
   "split_sizes": {
-    "test": 12985,
-    "train": 45488
+    "test": 40,
+    "train": 200
   },
   "test_languages": {
-    "en": 8193,
-    "th": 4792
+    "en": 40
   },
   "test_orphan_I_tokens": 0,
-  "train_duplicates_removed": 48,
+  "train_duplicates_removed": 0,
   "train_languages": {
-    "en": 28585,
-    "th": 16726
+    "en": 200
   },
-  "train_test_overlap_removed": 129
+  "train_test_overlap_removed": 0
 }
