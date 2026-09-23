@@ -58,6 +58,8 @@ flowchart LR
         M10[10 · sampling]:::infer
         M24[24 · structured output]:::infer
         M10 --> M24
+        M25[25 · entity linking]:::infer
+        M10 --> M25
         M11[11 · KV-cache]:::infer
     end
 
@@ -93,7 +95,7 @@ flowchart LR
 
 ## Index
 
-24 core mechanisms, grouped by category in the [graph](#dependency-graph)'s order. The **#** is the learning order — follow it, or take a category at a time. Structured output (#24) can be studied immediately after sampling (#10).
+25 core mechanisms, grouped by category in the [graph](#dependency-graph)'s order. The **#** is the learning order — follow it, or take a category at a time. Structured output (#24) can be studied immediately after sampling (#10).
 
 Dirs are `<cat>_<mechanism>` — `tok` · `fnd` · `trn` · `arc` · `inf` · `pst` · `agt`. Both
 halves are stable, so **this table owns the order**: adding or dropping a mechanism is a
@@ -118,6 +120,7 @@ one-row edit and never renames a directory.
 | 22 | [Agentic Self-Instruct](pst_autodata/) | post-training | 🟡 | Autodata ([arXiv:2606.25996](https://arxiv.org/abs/2606.25996)) — gap `0.02 → 0.314` | An example only teaches if the strong model gets it right and the weak one doesn't |
 | 10 | [sampling (greedy/temp/top-k/top-p)](inf_sampling/) | inference | 🔲 | HF `generate` | — |
 | 24 | [structured output (constrained decoding)](inf_structured_output/) | inference | 🟡 | Offline masking + JSON Schema checks; llama.cpp b10883 live comparison | Constrained decoding restricts what the model can emit; it does not guarantee the content is correct |
+| 25 | [entity linking](inf_entity_linking/) | inference | 🟡 | ReFinED at `7f57bd2` · pretrained CPU inference | Context, types, descriptions, and priors resolve an ambiguous mention to an entity |
 | 11 | [KV-cache](inf_kv_cache/) | inference | 🔲 | no-cache generation (identical outputs) | — |
 | 16 | [tool calling](agt_tool_calling/) | agent | 🟡 | OpenAI tool-call wire format (DeepInfra) | Model returns structured `tool_calls`; you execute and feed results back |
 | 17 | [ReAct loop](agt_react_loop/) | agent | 🟡 | `ysymyth/ReAct` | Interleave Thought → Action → Observation until Finish[answer] |
