@@ -20,11 +20,11 @@
   },
   "raw_files": {
     "test": {
-      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/demo/test.conll",
+      "path": "/mnt/storage/projects/learning-llm-components/other_diziner/data/raw/demo/test.conll",
       "sha256": "7f053537279d97f8f65604643e7b32a6cfd42d297adb8d23b649e12d64097194"
     },
     "train": {
-      "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/demo/train.conll",
+      "path": "/mnt/storage/projects/learning-llm-components/other_diziner/data/raw/demo/train.conll",
       "sha256": "e379b1dc628c530a39c735162787c9e06440481341f87bd689c5c650c5ce2504"
     }
   },
@@ -32,7 +32,7 @@
   "schema_file": "schema.json",
   "source_format": "conll",
   "source_metadata": {
-    "path": "/mnt/storage/projects/learning-llm-components/agt_diziner/data/raw/demo/metadata.json",
+    "path": "/mnt/storage/projects/learning-llm-components/other_diziner/data/raw/demo/metadata.json",
     "sha256": "5f17f595327ab01769f59d4c38eec093925bd17765cb05201a5b4622d3f9f953"
   },
   "split_sizes": {

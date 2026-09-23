@@ -4,7 +4,7 @@ Independent annotators disagree; a supervisor refines their instructions without
 
 *Annotators compare notes; the supervisor turns their disagreements into clearer instructions.*
 
-- Category: agent
+- Category: other
 - Verified against: DiZiNER equations and four-phase pipeline · strict entity micro-F1
 - Status: 🟡 in progress — Thai–English pilot completed; modest improvement on 40 test examples
 
@@ -50,7 +50,7 @@ The recovered pilot completed testing on 40 English/Thai examples. Mean selected
 
 ## Run
 
-Set `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in the repository’s `.env`. Run from `agt_diziner/`:
+Set `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in the repository’s `.env`. Run from `other_diziner/`:
 
 ```bash
 uv sync
@@ -87,7 +87,7 @@ Save records like the test data, keeping only `tokens`, in `data/tokens.json`:
 ]
 ```
 
-From `agt_diziner/`:
+From `other_diziner/`:
 
 ```bash
 uv run python predict.py --prompt runs/pilot/selected_model.json \

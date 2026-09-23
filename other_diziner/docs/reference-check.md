@@ -43,7 +43,7 @@ The paired `prompt_comparison` report is an extra local comparison: the highest-
 - Recomputed every selected/baseline score in the recovered summary from saved predictions and local gold labels; all metrics and the documentation’s source hash match.
 - Full suite with the upstream audit enabled: **80 tests passed**. No model calls were made. These tests verify the covered functions and artifacts, not every upstream execution path or live-model equivalence.
 
-To repeat the optional audit, set `DIZINER_REFERENCE` to a clean checkout of the pinned commit when running `uv run pytest tests/test_reference_audit.py -q` from `agt_diziner/`. Without that setting, upstream-dependent tests skip; artifact verification also skips if the recovered run is absent.
+To repeat the optional audit, set `DIZINER_REFERENCE` to a clean checkout of the pinned commit when running `uv run pytest tests/test_reference_audit.py -q` from `other_diziner/`. Without that setting, upstream-dependent tests skip; artifact verification also skips if the recovered run is absent.
 
 ## Baseline and selection
 

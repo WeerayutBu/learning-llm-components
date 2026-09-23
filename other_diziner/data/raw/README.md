@@ -31,7 +31,7 @@ In the main workflow, preprocess with `--data data/raw/demo --output data/demo`,
 
 [conll2003/](conll2003/metadata.json) contains the English splits from the [Hugging Face mirror](https://huggingface.co/datasets/tomaarsen/conll2003/tree/3a0c0677d3177b6122fceed3239dda7a5de6a514): 14,041 train, 3,250 dev, and 3,453 test sentences. Its schema uses `PER`, `ORG`, `LOC`, and `MISC`. Tokens and IOB2 NER labels are preserved; POS/chunk columns are omitted. Dev is retained but unused by the pipeline. Full CoNLL files remain local and ignored by Git.
 
-From `agt_diziner/`, prepare the English pilot subset:
+From `other_diziner/`, prepare the English pilot subset:
 
 ```bash
 uv run python preprocess.py --config config.pilot.en.json --data data/raw/conll2003 --output data/conll2003

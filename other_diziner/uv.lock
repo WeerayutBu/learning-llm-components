@@ -14,7 +14,7 @@ resolution-markers = [
 ]
 
 [[package]]
-name = "agt-diziner"
+name = "other-diziner"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

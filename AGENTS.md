@@ -22,7 +22,7 @@ Not modules: `questions/` (recall forms), `slides/`.
 
 ## 2. Name the dir
 
-`<cat>_<mechanism>` — `tok` `fnd` `trn` `arc` `inf` `pst` `agt`.
+`<cat>_<mechanism>` — `tok` `fnd` `trn` `arc` `inf` `pst` `agt` `other`.
 
 **No numbers** — the index owns the order, so adding never renames a dir. Ask if the category
 isn't obvious.
